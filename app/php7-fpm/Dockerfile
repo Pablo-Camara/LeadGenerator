@@ -36,4 +36,4 @@ RUN pecl install xdebug \
 
 RUN echo 'alias sf4="php bin/console"' >> ~/.bashrc
 
-WORKDIR /var/www/symfony
+WORKDIR /var/www/api
