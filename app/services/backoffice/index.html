@@ -21,12 +21,25 @@
             height: 60px;
             line-height: 60px;
             background-color: #0a5cb1;
+
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
         }
 
         .navbar .nav-title {
             color: #FFFFFF;
             float: left;
             padding-left: 10px;
+        }
+
+        .navbar .nav-title div {
+            height: 25px;
+            line-height: 25px;
         }
 
         .navbar .nav-menu {
@@ -40,6 +53,7 @@
             color: #FFFFFF;
             padding-right: 10px;
             cursor: pointer;
+            font-size: 14px;
         }
 
         .navbar .nav-menu .nav-menu-item .nav-menu-items {
@@ -73,6 +87,43 @@
 
         .navbar .nav-menu .nav-menu-items .nav-menu-item:hover {
             cursor: pointer;
+        }
+
+
+        .navbar.subnavbar {
+            background-color: #0a3c6f;
+        }
+
+        .navbar.h25 {
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .success-color {
+            color: #81ff00;
+        }
+
+        .error-color {
+            color: #ff1e1e;
+        }
+
+        .warning-color {
+            color: yellow;
+        }
+        .fs14 {
+            font-size: 14px;
+        }
+
+
+        .bg-lb {
+            background: #3773b1  !important;
+        }
+        .mb-2 {
+            margin-bottom: 2px;
+        }
+
+        .pt-10 {
+            padding-top: 10px;
         }
 
 
@@ -134,6 +185,68 @@
         </div>
     </div>
 
+
+    <div class="navbar subnavbar h25">
+        <div class="nav-title">Traffic Management -> <b>Domains:</b></div>
+        <div class="nav-menu">
+            <div class="nav-menu-title">Options</div>
+
+            <div class="nav-menu-items">
+                <div class="nav-menu-item">Add</div>
+                <div class="nav-menu-item">Search</div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="navbar subnavbar fs14 bg-lb mb-2 pt-10">
+        <div class="nav-title">
+            <div>
+                <span class="success-color">https://</span>www.pablo.camara.pt
+            </div>
+            <div>
+                Status: <b class="success-color">Online</b>
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-menu-title">Menu</div>
+
+            <div class="nav-menu-items">
+                <div class="nav-menu-item">Open Dashboard</div>
+                <div class="nav-menu-item">Change Status</div>
+                <div class="nav-menu-item">View Full Info</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="navbar subnavbar fs14 bg-lb mb-2">
+        <div class="nav-title">
+            <div>
+                <span class="error-color">http://</span>www.marciacabeleireiro.com
+            </div>
+            <div>
+                Status: <b class="warning-color">Under Construction</b>
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-menu-title">Menu</div>
+
+            <div class="nav-menu-items">
+                <div class="nav-menu-item">Open Dashboard</div>
+                <div class="nav-menu-item">Change Status</div>
+                <div class="nav-menu-item">View Full Info</div>
+            </div>
+
+        </div>
+    </div>
+
+
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         $('.navbar .nav-menu .nav-menu-title').on('click',function(){
@@ -149,10 +262,16 @@
             var navMenu = $(this).closest('.nav-menu-item');
             var navMenuItems = navMenu.find('.nav-menu-items');
 
+            var isVisible = navMenuItems.is(':visible');
+            $('.nav-menu-item .nav-menu-items').hide();
+            if(isVisible)navMenuItems.show();
+            $('.nav-menu-item-title').removeClass('nav-menu-item-active');
             $(this).toggleClass('nav-menu-item-active');
             navMenuItems.toggle();
 
         });
     </script>
+
+
 </body>
 </html>

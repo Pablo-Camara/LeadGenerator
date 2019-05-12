@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     nginx
 
 ADD nginx.conf /etc/nginx/
-ADD ./sites/symfony.conf /etc/nginx/sites-available/
+VOLUME ./sites/ /etc/nginx/sites-available/
 
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony \
 && rm /etc/nginx/sites-enabled/default
